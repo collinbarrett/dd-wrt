@@ -33,7 +33,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 #### Network Address Server Settings (DHCP)
 
-_Route to private network reserved IPs to ensure ISP's DNS servers are not used. Dnsmasq is used to configure preferred DNS servers._
+_Route DNS to private network reserved IPs to ensure ISP's DNS servers are not used. Dnsmasq is used to configure preferred DNS servers._
 
 - Static DNS 1: `10.0.0.0`
 - Static DNS 2: `10.0.0.1`
