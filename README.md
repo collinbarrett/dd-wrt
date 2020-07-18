@@ -40,6 +40,12 @@ _Route to private network reserved IPs to ensure ISP's DNS servers are not used.
 - Time Zone: `US/Central`
 - Server IP/Name: `pool.ntp.org`
 
+# Wireless
+
+TBD
+
+Use guidance from [here](https://forum.dd-wrt.com/wiki/index.php/QCA_wireless_settings).
+
 # Services
 
 ## Services
