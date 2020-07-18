@@ -48,7 +48,7 @@ _Route to private network reserved IPs to ensure ISP's DNS servers are not used.
 
 #### DHCP Server
 
-_Assign a static lease to the TV so that it can bypass the OpenVPN client via policy-based routing to support streaming services that block VPN access._
+_Since many streaming services (e.g., Netflix) block VPNs, assign a static lease to the TV so that it can bypass OpenVPN client via policy-based routing._
 
 **Static Leases**
 | MAC Address | Hostname | IP Address | Client Lease Expiration |
@@ -114,3 +114,37 @@ route 45.90.28.0 255.255.255.255
 192.168.1.144/30
 192.168.1.148/31
 ```
+
+# Security
+
+## Firewall
+
+### Security
+
+#### Firewall Protection
+
+- SPI Firewall: `Enable`
+
+#### Additional Filters
+
+- Filter Proxy: `☑`
+- Filter Cookies: `☑`
+- Filter Java Applets: `☑`
+- Filter ActiveX: `☑`
+- Filter TOS/DSCP: `☑`
+- ARP Spoofing Protection: `☑`
+
+#### Block WAN Requests
+
+- Block Anonymous WAN Requests (ping): `☑`
+- Filter Multicast: `☑`
+- Filter WAN NAT Redirection: `☑`
+- Filter IDENT (Port 113): `☑`
+- Block WAN SNMP access: `☑`
+
+#### Impede WAN DoS/Bruteforce
+
+- Limit SSH Access: `☑`
+- Limit Telnet Access: `☑`
+- Limit PPTP Server Access: `☑`
+- Limit FTP Server Access: `☑`
