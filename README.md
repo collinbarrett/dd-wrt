@@ -148,3 +148,13 @@ route 45.90.28.0 255.255.255.255
 - Limit Telnet Access: `☑`
 - Limit PPTP Server Access: `☑`
 - Limit FTP Server Access: `☑`
+
+## VPN Passthrough
+
+### Vitual Private Network (VPN)
+
+#### VPN Passthrough
+
+- IPSec Passthrough: `Disable`
+- PPTP Passthrough: `Disable`
+- L2TP Passthrough: `Disable`
