@@ -17,6 +17,14 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - [ProtonVPN](https://protonvpn.com/)
 - [NextDNS](https://nextdns.io/)
 
+## Select Optimal ProtonVPN Server
+
+- Configure via ProtonVPN API per [my blog](https://collinmbarrett.com/protonvpn-dd-wrt-api-script/).
+
+## TODO
+
+- Block DNS requests when VPN tunnel is down.
+
 # Setup
 
 ## Basic Setup
@@ -164,3 +172,48 @@ route 45.90.28.0 255.255.255.255
 - IPSec Passthrough: `Disable`
 - PPTP Passthrough: `Disable`
 - L2TP Passthrough: `Disable`
+
+# Administration
+
+## Keep Alive
+
+### WDS/Connection Watchdog
+
+_If WAN connectivity is lost (either VPN or ISP connection break), reboot the router. If it is an ISP issue, this likely will not help. If the VPN server I was connected to goes down, rebooting the router will re-connect to a new server._
+
+- Enable Watchdog: `Enable`
+- Interval (in seconds): `60`
+- IP Addresses: `1.1.1.1`
+
+## Commands
+
+### Diagnostics
+
+#### Startup
+
+```
+# Start Entware.
+# https://wiki.dd-wrt.com/wiki/index.php/Installing_Entware
+sleep 10
+/opt/etc/init.d/rc.unslung start
+```
+
+#### Firewall
+
+```
+LAN_IP=`nvram get lan_ipaddr`
+
+# Block DNS requests to anywhere but my dnsmasq.
+iptables -t nat -A PREROUTING -i br0 -p udp --dport 53 -j DNAT --to $LAN_IP
+iptables -t nat -A PREROUTING -i br0 -p tcp --dport 53 -j DNAT --to $LAN_IP
+
+WAN_IF=`nvram get wan_iface`
+
+# Block requests not bound for OpenVPN Client.
+iptables -I FORWARD -i br0 -o $WAN_IF -j REJECT --reject-with icmp-host-prohibited
+iptables -I FORWARD -i br0 -p tcp -o $WAN_IF -j REJECT --reject-with tcp-reset
+iptables -I FORWARD -i br0 -p udp -o $WAN_IF -j REJECT --reject-with udp-reset
+
+# Allow TV to bypass OpenVPN Client.
+iptables -I FORWARD -i br0 -o $WAN_IF -s 192.168.1.99 -j ACCEPT
+```
