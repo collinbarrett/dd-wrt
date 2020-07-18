@@ -23,6 +23,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 ## TODO
 
+- Document Wireless settings.
 - Block DNS requests when VPN tunnel is down.
 
 # Setup
