@@ -73,7 +73,7 @@ _Since many streaming services (e.g., Netflix) block VPNs, assign a static lease
 #### Dnsmasq
 
 - No DNS Rebind: `☑`
-- Query DNS in Strict Order: `☐`
+- Query DNS in Strict Order: `☑`
 - Maximum Cached Entries: `10000`
 
 **Additional Dnsmasq Options**
@@ -88,8 +88,9 @@ domain-needed
 # Override default synchronous logging which blocks subsequent requests.
 log-async=5
 
-# Send DNS requests to all servers to use fastest response.
-all-servers
+# No effect with nextdns (yet).
+# https://serverfault.com/a/1026324/308154
+neg-ttl=300
 
 # Use nextdns.io for DNS.
 no-resolv
