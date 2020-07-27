@@ -83,9 +83,14 @@ domain-needed
 # Override default synchronous logging which blocks subsequent requests.
 log-async=5
 
-# No effect with nextdns (yet).
-# https://serverfault.com/a/1026324/308154
+# https://github.com/collinbarrett/dd-wrt/issues/1
 neg-ttl=300
+
+# Block highly-requested nextdns-blocked domains from my LAN.
+# Remove after https://github.com/collinbarrett/dd-wrt/issues/1 is resolved
+address=/push.rollout.io/::
+address=/cdn.walkme.com/::
+address=/scribe.logs.roku.com/::
 
 # Use nextdns.io for DNS.
 no-resolv
