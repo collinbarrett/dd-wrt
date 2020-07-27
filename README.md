@@ -21,11 +21,6 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 - Configure via ProtonVPN API per [my blog](https://collinmbarrett.com/protonvpn-dd-wrt-api-script/).
 
-## TODO
-
-- Document Wireless settings.
-- Block DNS requests when VPN tunnel is down.
-
 # Setup
 
 ## Basic Setup
