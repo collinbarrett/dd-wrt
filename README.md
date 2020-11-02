@@ -86,11 +86,8 @@ log-async=5
 # https://github.com/collinbarrett/dd-wrt/issues/1
 neg-ttl=300
 
-# Block highly-requested nextdns-blocked domains from my LAN.
-# Remove after https://github.com/collinbarrett/dd-wrt/issues/1 is resolved
-address=/push.rollout.io/::
-address=/cdn.walkme.com/::
-address=/scribe.logs.roku.com/::
+# Use fastest response from any upstream.
+all-servers
 
 # Use nextdns.io for DNS.
 no-resolv
