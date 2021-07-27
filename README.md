@@ -71,7 +71,7 @@ _Since many streaming services (e.g., Netflix) block VPNs, assign a static lease
 **Static Leases**
 | MAC Address | Hostname | IP Address | Client Lease Expiration |
 |-------------|----------|--------------|-------------------------|
-| {REDACTED} | tv | 192.168.1.99 | |
+| {REDACTED} | tv | 192.168.1.63 | |
 
 #### Dnsmasq
 
@@ -218,5 +218,5 @@ WAN_IF=`nvram get wan_iface`
 iptables -I FORWARD -i br0 -o $WAN_IF -j REJECT
 
 # Allow TV to bypass OpenVPN Client.
-iptables -I FORWARD -i br0 -o $WAN_IF -s 192.168.1.99 -j ACCEPT
+iptables -I FORWARD -i br0 -o $WAN_IF -s 192.168.1.63 -j ACCEPT
 ```
