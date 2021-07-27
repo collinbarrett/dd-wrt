@@ -118,8 +118,10 @@ route 45.90.28.0 255.255.255.255
 
 **Policy-Based Routing**
 
+Note: DON'T prefix with comment. _In build 46446 and later you can disable PBR by placing a # as the first character in the PBR field, this functions as an 
+on/off switch._
+
 ```
-# Route DHCP-assigned clients through OpenVPN client.
 192.168.1.100/30
 192.168.1.104/29
 192.168.1.112/28
