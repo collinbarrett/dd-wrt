@@ -193,7 +193,7 @@ _If WAN connectivity is lost (either VPN or ISP connection break), reboot the ro
 ```
 # Start Entware.
 # https://wiki.dd-wrt.com/wiki/index.php/Installing_Entware
-sleep 10
+sleep 25
 /opt/etc/init.d/rc.unslung start
 ```
 
@@ -209,10 +209,7 @@ iptables -t nat -A PREROUTING -i br0 -p tcp --dport 53 -j DNAT --to $LAN_IP
 WAN_IF=`nvram get wan_iface`
 
 # Block requests not bound for OpenVPN Client.
-iptables -I FORWARD -s 192.168.1.64/26 -o $WAN_IF -m state --state NEW -j REJECT
-iptables -I FORWARD -i br0 -o $WAN_IF -j REJECT --reject-with icmp-host-prohibited
-iptables -I FORWARD -i br0 -p tcp -o $WAN_IF -j REJECT --reject-with tcp-reset
-iptables -I FORWARD -i br0 -p udp -o $WAN_IF -j REJECT --reject-with udp-reset
+iptables -I FORWARD -i br0 -o $WAN_IF -j REJECT
 
 # Allow TV to bypass OpenVPN Client.
 iptables -I FORWARD -i br0 -o $WAN_IF -s 192.168.1.99 -j ACCEPT
