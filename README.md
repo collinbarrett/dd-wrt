@@ -10,7 +10,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 ## Current DD-WRT Build
 
-- [v3.0-r73720 07/09/2020](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=325724)
+- [v3.0-r47090 std (07/26/21)](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=329777)
 
 ## 3rd-Party Services
 
@@ -31,6 +31,8 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 _Route DNS to private network reserved IPs to ensure ISP's DNS servers are not used. Dnsmasq is used to configure preferred DNS servers._
 
+- Start IP Address: 192.168.1.64
+- Maximum DHCP Users: 64
 - Static DNS 1: `10.0.0.0`
 - Static DNS 2: `10.0.0.1`
 - Static DNS 3: `10.0.0.2`
@@ -75,7 +77,8 @@ _Since many streaming services (e.g., Netflix) block VPNs, assign a static lease
 
 ```
 # Block attempts to resolve domains via ISP.
-address=/.hsd1.tn.comcast.net/::
+address=/tn.comcast.net/::
+address=/wpad.comcast.net/::
 
 # Block non-domain lookups.
 domain-needed
@@ -122,12 +125,7 @@ Note: DON'T prefix with comment. _In build 46446 and later you can disable PBR b
 on/off switch._
 
 ```
-192.168.1.100/30
-192.168.1.104/29
-192.168.1.112/28
-192.168.1.128/28
-192.168.1.144/30
-192.168.1.148/31
+192.168.1.64/26
 ```
 
 # Security
@@ -211,6 +209,7 @@ iptables -t nat -A PREROUTING -i br0 -p tcp --dport 53 -j DNAT --to $LAN_IP
 WAN_IF=`nvram get wan_iface`
 
 # Block requests not bound for OpenVPN Client.
+iptables -I FORWARD -s 192.168.1.64/26 -o $WAN_IF -m state --state NEW -j REJECT
 iptables -I FORWARD -i br0 -o $WAN_IF -j REJECT --reject-with icmp-host-prohibited
 iptables -I FORWARD -i br0 -p tcp -o $WAN_IF -j REJECT --reject-with tcp-reset
 iptables -I FORWARD -i br0 -p udp -o $WAN_IF -j REJECT --reject-with udp-reset
