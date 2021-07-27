@@ -25,6 +25,12 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 ## Basic Setup
 
+### WAN Setup
+
+#### WAN Connection Type
+
+- Ignore WAN DNS: `☑`
+
 ### Network Setup
 
 #### Network Address Server Settings (DHCP)
