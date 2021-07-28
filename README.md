@@ -82,9 +82,8 @@ _Since many streaming services (e.g., Netflix) block VPNs, assign a static lease
 **Additional Dnsmasq Options**
 
 ```
-# Block attempts to resolve domains via ISP.
-address=/tn.comcast.net/::
-address=/wpad.comcast.net/::
+# Block Comcast WPAD / DNS
+address=/comcast.net/
 
 # Block non-domain lookups.
 domain-needed
