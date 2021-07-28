@@ -207,15 +207,15 @@ sleep 25
 ```
 LAN_IP=`nvram get lan_ipaddr`
 
-# Block DNS requests to anywhere but my dnsmasq.
+# block non-dnsmasq DNS requests
 iptables -t nat -A PREROUTING -i br0 -p udp --dport 53 -j DNAT --to $LAN_IP
 iptables -t nat -A PREROUTING -i br0 -p tcp --dport 53 -j DNAT --to $LAN_IP
 
 WAN_IF=`nvram get wan_iface`
 
-# Block requests not bound for OpenVPN Client.
+# block non-OpenVPN requests
 iptables -I FORWARD -i br0 -o $WAN_IF -j REJECT
 
-# Allow TV to bypass OpenVPN Client.
-iptables -I FORWARD -i br0 -o $WAN_IF -s 192.168.1.63 -j ACCEPT
+# allow TV to bypass OpenVPN
+iptables -I FORWARD -s 192.168.1.63 -i br0 -o $WAN_IF -j ACCEPT
 ```
