@@ -206,16 +206,25 @@ sleep 25
 
 ```
 LAN_IP=`nvram get lan_ipaddr`
-
-# block non-dnsmasq DNS requests
-iptables -t nat -A PREROUTING -i br0 -p udp --dport 53 -j DNAT --to $LAN_IP
-iptables -t nat -A PREROUTING -i br0 -p tcp --dport 53 -j DNAT --to $LAN_IP
-
 WAN_IF=`nvram get wan_iface`
 
-# block non-OpenVPN requests
+# -I w/o specified rulenum => specify in reverse priority
+
+# block non-VPN requests
 iptables -I FORWARD -i br0 -o $WAN_IF -j REJECT
 
-# allow TV to bypass OpenVPN
-iptables -I FORWARD -s 192.168.1.63 -i br0 -o $WAN_IF -j ACCEPT
+# only allow TV on WAN (not VPN)
+iptables -I FORWARD -i br0 -s 192.168.1.63 -o tun1 -j REJECT
+iptables -I FORWARD -i br0 -s 192.168.1.63 -o $WAN_IF -j ACCEPT
+
+# block non-VPN DNS requests
+# TODO: allow DNS lookup to protonmail.ch or replace with hard-coded IP
+# iptables -I FORWARD -o $WAN_IF -p tcp --dport 53 -j REJECT
+# iptables -I FORWARD -o $WAN_IF -p udp --dport 53 -j REJECT
+# iptables -I OUTPUT -o $WAN_IF -p tcp --dport 53 -j REJECT
+# iptables -I OUTPUT -o $WAN_IF -p udp --dport 53 -j REJECT
+
+# redirect DNS requests to dnsmasq
+iptables -t nat -I PREROUTING -i br0 -p tcp --dport 53 -j DNAT --to $LAN_IP
+iptables -t nat -I PREROUTING -i br0 -p udp --dport 53 -j DNAT --to $LAN_IP
 ```
