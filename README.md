@@ -211,18 +211,19 @@ WAN_IF=`nvram get wan_iface`
 # -I w/o specified rulenum => specify in reverse priority
 
 # block non-VPN requests
-iptables -I FORWARD -i br0 -o $WAN_IF -j REJECT
+iptables -I FORWARD -i br0 -o $WAN_IF -j REJECT --reject-with icmp-host-prohibited
+iptables -I FORWARD -i br0 -p tcp -o $WAN_IF -j REJECT --reject-with tcp-reset
+iptables -I FORWARD -i br0 -p udp -o $WAN_IF -j REJECT --reject-with udp-reset
 
-# only allow TV on WAN (not VPN)
-iptables -I FORWARD -i br0 -s 192.168.1.63 -o tun1 -j REJECT
+# allow TV to bypass VPN
 iptables -I FORWARD -i br0 -s 192.168.1.63 -o $WAN_IF -j ACCEPT
 
 # block non-VPN DNS requests
-# TODO: allow DNS lookup to protonmail.ch or replace with hard-coded IP
-# iptables -I FORWARD -o $WAN_IF -p tcp --dport 53 -j REJECT
-# iptables -I FORWARD -o $WAN_IF -p udp --dport 53 -j REJECT
-# iptables -I OUTPUT -o $WAN_IF -p tcp --dport 53 -j REJECT
-# iptables -I OUTPUT -o $WAN_IF -p udp --dport 53 -j REJECT
+# TODO: https://github.com/collinbarrett/dd-wrt/issues/3
+# iptables -I FORWARD -o $WAN_IF -p tcp --dport 53 -j REJECT --reject-with tcp-reset
+# iptables -I FORWARD -o $WAN_IF -p udp --dport 53 -j REJECT --reject-with udp-reset
+# iptables -I OUTPUT -o $WAN_IF -p tcp --dport 53 -j REJECT --reject-with tcp-reset
+# iptables -I OUTPUT -o $WAN_IF -p udp --dport 53 -j REJECT --reject-with udp-reset
 
 # redirect DNS requests to dnsmasq
 iptables -t nat -I PREROUTING -i br0 -p tcp --dport 53 -j DNAT --to $LAN_IP
