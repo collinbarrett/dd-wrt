@@ -46,7 +46,6 @@ then
   echo "The optimal OpenVPN username is ${USERNAME}"
 
   if [ "$IP" != "$CURRENTIP" ] || [ "$USERNAME" != "$CURRENTUSERNAME" ]
-  #if [ 1 == 2 ]
   then
     echo "Connecting to $IP with $USERNAME..."
 
