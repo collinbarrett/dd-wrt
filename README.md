@@ -26,48 +26,48 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 ##### Physical Interface wlan0
 
-Service Set Identifier (SSID): {REDACTED}
-Advanced Settings: `✓`
-Firmware Type: `VANILLA`
-Airtime Fairness: `Disable`
+- Service Set Identifier (SSID): {REDACTED}
+- Advanced Settings: `✓`
+- Firmware Type: `VANILLA`
+- Airtime Fairness: `Disable`
 
 ##### Virtual Interfaces wlan0.1
 
-Service Set Identifier (SSID): {REDACTED}
-Advanced Settings: `✓`
-AP Isolation: `Enable`
+- Service Set Identifier (SSID): {REDACTED}
+- Advanced Settings: `✓`
+- AP Isolation: `Enable`
 
 ##### Physical Interface wlan1
 
-Service Set Identifier (SSID): {REDACTED}
-Advanced Settings: `✓`
-Firmware Type: `VANILLA`
-Airtime Fairness: `Disable`
+- Service Set Identifier (SSID): {REDACTED}
+- Advanced Settings: `✓`
+- Firmware Type: `VANILLA`
+- Airtime Fairness: `Disable`
 
 ##### Virtual Interfaces wlan1.1
 
-Service Set Identifier (SSID): {REDACTED}
-Advanced Settings: `✓`
-AP Isolation: `Enable`
+- Service Set Identifier (SSID): {REDACTED}
+- Advanced Settings: `✓`
+- AP Isolation: `Enable`
 
 #### Wireless Security
 
 ##### Physical Interface wlan0
 
-WPA Shared Key: {REDACTED}
+- WPA Shared Key: {REDACTED}
 
 ##### Virtual Interfaces wlan0.1
 
-Security Mode: `WPA`
-Network Authentication: `WPA2 Personal`
-WPA Shared Key: {REDACTED}
+- Security Mode: `WPA`
+- Network Authentication: `WPA2 Personal`
+- WPA Shared Key: {REDACTED}
 
 ##### Physical Interface wlan1
 
-WPA Shared Key: {REDACTED}
+- WPA Shared Key: {REDACTED}
 
 ##### Virtual Interfaces wlan1.1
 
-Security Mode: `WPA`
-Network Authentication: `WPA2 Personal`
-WPA Shared Key: {REDACTED}
+- Security Mode: `WPA`
+- Network Authentication: `WPA2 Personal`
+- WPA Shared Key: {REDACTED}
