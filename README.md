@@ -47,6 +47,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - Protection Mode: `RTS/CTS`[^3]
 - RTS Threshold: `Enable`[^3]
 - Threshold: `980`[^3]
+- Short Preamble: `Enable`[^3]
 - Airtime Fairness: `Disable`[^1]
 
 ##### Virtual Interfaces wlan0.1
@@ -67,6 +68,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - Protection Mode: `RTS/CTS`[^3]
 - RTS Threshold: `Enable`[^3]
 - Threshold: `980`[^3]
+- Short Preamble: `Enable`[^3]
 - Airtime Fairness: `Disable`[^1]
 
 ##### Virtual Interfaces wlan1.1
