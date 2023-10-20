@@ -20,13 +20,27 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 ## Configuration
 
+### Setup
+
+#### Basic Setup
+
+##### Network Setup
+
+###### NTP Client Settings
+
+- Time Zone: {REDACTED}
+
 ### Wireless
 
 #### Basic Settings
 
-##### Physical Interface wlan0
+##### Physical Interface wlan0 [5 GHz/802.11ac]
 
 - Service Set Identifier (SSID): {REDACTED}
+- Network Mode: `AC / N Mixed`[^2]
+- Channel Width: `VHT80`[^3]
+- Channel: {least congested, maybe prefer 149-161, don't use Auto}[^3]
+- Extension Channel: {paired with Channel leads to least congested}[^3]
 - Advanced Settings: `✓`
 - Firmware Type: `VANILLA`[^1]
 - Airtime Fairness: `Disable`[^1]
@@ -37,9 +51,12 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - Advanced Settings: `✓`
 - AP Isolation: `Enable`
 
-##### Physical Interface wlan1
+##### Physical Interface wlan1 [2.4 GHz]
 
 - Service Set Identifier (SSID): {REDACTED}
+- Network Mode: `N / G Mixed`[^3]
+- Channel: {least congested, don't use Auto}[^3]
+- TurboQAM (QAM256): `Enable`[^3]
 - Advanced Settings: `✓`
 - Firmware Type: `VANILLA`[^1]
 - Airtime Fairness: `Disable`[^1]
@@ -73,3 +90,6 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - WPA Shared Key: {REDACTED}
 
 [^1]: [DD-WRT Netgear R7800 Install Guide](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=320614)
+[^2]: [QCA BEST WIFI SETTINGS](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=324014)
+[^3]: [QCA Wireless Settings](https://wiki.dd-wrt.com/wiki/index.php/Atheros/ath_wireless_settings)
+[^4]: []()
