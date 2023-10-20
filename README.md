@@ -28,8 +28,8 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 - Service Set Identifier (SSID): {REDACTED}
 - Advanced Settings: `✓`
-- Firmware Type: `VANILLA`
-- Airtime Fairness: `Disable`
+- Firmware Type: `VANILLA`[^1]
+- Airtime Fairness: `Disable`[^1]
 
 ##### Virtual Interfaces wlan0.1
 
@@ -41,8 +41,8 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 - Service Set Identifier (SSID): {REDACTED}
 - Advanced Settings: `✓`
-- Firmware Type: `VANILLA`
-- Airtime Fairness: `Disable`
+- Firmware Type: `VANILLA`[^1]
+- Airtime Fairness: `Disable`[^1]
 
 ##### Virtual Interfaces wlan1.1
 
@@ -71,3 +71,5 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - Security Mode: `WPA`
 - Network Authentication: `WPA2 Personal`
 - WPA Shared Key: {REDACTED}
+
+[^1]: [DD-WRT Netgear R7800 Install Guide](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=320614)
