@@ -43,6 +43,10 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - Extension Channel: {paired with Channel leads to least congested}[^3]
 - Advanced Settings: `✓`
 - Firmware Type: `VANILLA`[^1]
+- TX Power: `30`[^3]
+- Protection Mode: `RTS/CTS`[^3]
+- RTS Threshold: `Enable`[^3]
+- Threshold: `980`[^3]
 - Airtime Fairness: `Disable`[^1]
 
 ##### Virtual Interfaces wlan0.1
@@ -59,6 +63,10 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - TurboQAM (QAM256): `Enable`[^3]
 - Advanced Settings: `✓`
 - Firmware Type: `VANILLA`[^1]
+- TX Power: `30`[^3]
+- Protection Mode: `RTS/CTS`[^3]
+- RTS Threshold: `Enable`[^3]
+- Threshold: `980`[^3]
 - Airtime Fairness: `Disable`[^1]
 
 ##### Virtual Interfaces wlan1.1
@@ -88,6 +96,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - Security Mode: `WPA`
 - Network Authentication: `WPA2 Personal`
 - WPA Shared Key: {REDACTED}
+- Custom Config: `vendor_vht=1`[^3]
 
 [^1]: [DD-WRT Netgear R7800 Install Guide](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=320614)
 [^2]: [QCA BEST WIFI SETTINGS](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=324014)
