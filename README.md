@@ -49,12 +49,16 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - Threshold: `980`[^3]
 - Short Preamble: `Enable`[^3]
 - Single User Beamforming: `Enable`[^3]
+- Beacon Interval: `300`[^3]
 - Airtime Fairness: `Disable`[^1]
 
 ##### Virtual Interfaces wlan0.1
 
 - Service Set Identifier (SSID): {REDACTED}
 - Advanced Settings: `✓`
+- Protection Mode: `RTS/CTS`[^3]
+- RTS Threshold: `Enable`[^3]
+- Threshold: `980`[^3]
 - AP Isolation: `Enable`[^3]
 
 ##### Physical Interface wlan1 [2.4 GHz]
@@ -70,12 +74,16 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - RTS Threshold: `Enable`[^3]
 - Threshold: `980`[^3]
 - Short Preamble: `Enable`[^3]
+- Beacon Interval: `401`[^3]
 - Airtime Fairness: `Disable`[^1]
 
 ##### Virtual Interfaces wlan1.1
 
 - Service Set Identifier (SSID): {REDACTED}
 - Advanced Settings: `✓`
+- Protection Mode: `RTS/CTS`[^3]
+- RTS Threshold: `Enable`[^3]
+- Threshold: `980`[^3]
 - AP Isolation: `Enable`[^3]
 
 #### Wireless Security
