@@ -74,7 +74,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - RTS Threshold: `Enable`[^3]
 - Threshold: `980`[^3]
 - Short Preamble: `Enable`[^3]
-- Beacon Interval: `401`[^3]
+- Beacon Interval: `400`[^3]
 - Airtime Fairness: `Disable`[^1]
 
 ##### Virtual Interfaces wlan1.1
