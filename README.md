@@ -50,6 +50,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - Short Preamble: `Enable`[^3]
 - Single User Beamforming: `Enable`[^3]
 - Beacon Interval: `300`[^3]
+- DTIM Interval: `1`[^3]
 - Airtime Fairness: `Disable`[^1]
 
 ##### Virtual Interfaces wlan0.1
@@ -75,6 +76,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - Threshold: `980`[^3]
 - Short Preamble: `Enable`[^3]
 - Beacon Interval: `400`[^3]
+- DTIM Interval: `1`[^3]
 - Airtime Fairness: `Disable`[^1]
 
 ##### Virtual Interfaces wlan1.1
