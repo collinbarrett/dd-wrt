@@ -61,6 +61,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - RTS Threshold: `Enable`[^3]
 - Threshold: `980`[^3]
 - AP Isolation: `Enable`[^3]
+- DTIM Interval: `1`[^3]
 
 ##### Physical Interface wlan1 [2.4 GHz]
 
@@ -87,6 +88,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - RTS Threshold: `Enable`[^3]
 - Threshold: `980`[^3]
 - AP Isolation: `Enable`[^3]
+- DTIM Interval: `1`[^3]
 
 #### Wireless Security
 
