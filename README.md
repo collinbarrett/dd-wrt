@@ -115,7 +115,24 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - WPA Shared Key: {REDACTED}
 - Custom Config: `vendor_vht=1`[^3]
 
+### Services
+
+#### Services
+
+##### Dnsmasq Infrastructure
+
+- Additional Options:[^4]
+
+    ```
+    no-resolv
+    bogus-priv
+    strict-order
+    server=45.90.30.0
+    server=45.90.28.0
+    add-cpe-id={REDACTED}
+    ```
+
 [^1]: [DD-WRT Netgear R7800 Install Guide](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=320614)
 [^2]: [QCA BEST WIFI SETTINGS](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=324014)
 [^3]: [QCA Wireless Settings](https://wiki.dd-wrt.com/wiki/index.php/Atheros/ath_wireless_settings)
-[^4]: []()
+[^4]: [NextDNS Setup Guide](https://my.nextdns.io/{REDACTED}/setup)
