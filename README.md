@@ -24,11 +24,34 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 #### Basic Setup
 
+##### WAN Setup
+
+###### WAN Connection Type
+
+- Ignore WAN DNS: `✓`[^5]
+
 ##### Network Setup
+
+###### Dynamic Host Configuration Protocol (DHCP)
+
+- Forced DNS Redirection: `✓`[^6]
+- Forced DNS Redirection DoT: `✓`[^6]
 
 ###### NTP Client Settings
 
 - Time Zone: {REDACTED}
+
+#### Tunnels
+
+1. Import Configuration from ProtonVPN
+2. Configure
+   - DNS Servers via Tunnel: {empty}
+   - Kill Switch: `✓`[^5]
+   - Allow Clients WAN Access: {unchecked}[^5]
+   - Source Routing (PBR): `Route Selected sources via WAN`[^5]
+   - Source for PBR: `192.168.1.63`[^5]
+   - Watchdog: `Enable`[^5]
+     - Server IP / Name: `1.1.1.1`[^5]
 
 ### Wireless
 
@@ -119,20 +142,38 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 #### Services
 
+##### DHCP Server Setup
+
+- Static Leases:[^5]
+
+  | MAC Address | Hostname | IP Address   | Lease Expiration |
+  |-------------|----------|--------------|------------------|
+  | {REDACTED}  | tv       | 192.168.1.63 |                  |
+
 ##### Dnsmasq Infrastructure
 
-- Additional Options:[^4]
+- Additional Options:[^4] [^5] [^6]
 
     ```
     no-resolv
     bogus-priv
-    strict-order
     server=45.90.30.0
     server=45.90.28.0
     add-cpe-id={REDACTED}
     ```
 
+### Administration
+
+#### Keep Alive
+
+##### Schedule Reboot
+
+- Enable: `✓`
+- At a Set Time: `✓` `02` `00` `Monday`
+
 [^1]: [DD-WRT Netgear R7800 Install Guide](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=320614)
 [^2]: [QCA BEST WIFI SETTINGS](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=324014)
 [^3]: [QCA Wireless Settings](https://wiki.dd-wrt.com/wiki/index.php/Atheros/ath_wireless_settings)
 [^4]: [NextDNS Setup Guide](https://my.nextdns.io/{REDACTED}/setup)
+[^5]: [WireGuard client setup guide](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=324624)
+[^6]: [VPN and DNS guide](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=331017)
