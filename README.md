@@ -152,25 +152,24 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 ##### Dnsmasq Infrastructure
 
+- Cache DNSSEC Data: `Enable`
+- Validate DNS Replies (DNSSEC): `Enable`
+- Query DNS in Strict Order: `Enable`
+- Maximum Cached Entries: `10000`
 - Additional Options:[^4] [^5] [^6]
 
     ```
     no-resolv
-    bogus-priv
-    strict-order
-
+       
     # NextDNS
     server=45.90.30.0
     server=45.90.28.0
     add-cpe-id={REDACTED}
 
-    # AdGuard DNS (Default)
-    server=94.140.14.14
-    server=94.140.15.15
-
-    # Cloudflare 1.1.1.1 for Families (Malware)
-    server=1.1.1.2
-    server=1.0.0.2
+    # https://github.com/collinbarrett/dd-wrt/issues/1
+    neg-ttl=300
+    
+    # end 
     ```
 
 ### Administration
