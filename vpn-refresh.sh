@@ -17,12 +17,24 @@ sleep 5
 # MYPUBLICIP=$(curl -s http://whatismyip.akamai.com/)
 # echo "My public IP is ${MYPUBLICIP}"
 
-# fetch ProtonVPN server info
-LOGICALS=$(curl -sk -H "Cache-Control: no-cache" -H "Accept: application/json" https://api.protonmail.ch/vpn/logicals)
+# ProtonVPN server info query
+LOGICALS='curl -sk -H "Cache-Control: no-cache" -H "Accept: application/json" https://api.protonmail.ch/vpn/logicals'
 
-# query for optimal server
-SERVER=$(echo "$LOGICALS" | jq '.LogicalServers | map(select(.Status == 1 and .Tier == 2 and .City != null and (.City | (contains("Atlanta") or contains("Dallas") or contains("Chicago"))))) | [sort_by(.Score, .Load)[]][0] | .Servers[0]')
-IPSTRING=$(echo "$SERVER" | jq '.EntryIP')
+# query to get an optimal server
+OPTIMAL_SERVER_QUERY=<<'QUERY'
+.LogicalServers |
+map(
+    select(
+        [.Status,.Tier] == [1, 2] and
+        .City != null and
+        (.City | test("(Atlanta|Dallas|Chicago)") # Now they have *two* problems.
+    )
+) |
+sort_by(.Score, .Load)[0].Servers[0] |
+"\(.EntryIP) \(.Label)"
+QUERY
+
+$LOGICALS | jq --raw-output "$OPTIMAL_SERVER_QUERY" | read -r $IPSTRING $LABELSTRING
 
 if [ -n "$IPSTRING" ]
 then
@@ -39,7 +51,6 @@ then
 
   # replace "THISISMYPROTONVPNUSERNAME" with your ProtonVPN username
   USERNAMEPRE="THISISMYPROTONVPNUSERNAME+b:"
-  LABELSTRING=$(echo "$SERVER" | jq '.Label')
   LABELSTRING="${LABELSTRING%\"}"
   LABEL="${LABELSTRING#\"}"
   USERNAME="$USERNAMEPRE$LABEL"
