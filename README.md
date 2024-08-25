@@ -152,8 +152,6 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
 ##### Dnsmasq Infrastructure
 
-- Cache DNSSEC Data: `Enable`
-- Validate DNS Replies (DNSSEC): `Enable`
 - Query DNS in Strict Order: `Enable`
 - Maximum Cached Entries: `10000`
 - Additional Options:[^4] [^5] [^6]
