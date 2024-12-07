@@ -163,11 +163,8 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
     server=45.90.30.0
     server=45.90.28.0
     add-cpe-id={REDACTED}
-
-    # https://github.com/collinbarrett/dd-wrt/issues/1
-    neg-ttl=300
     
-    # end 
+    # end
     ```
 
 ### Administration
