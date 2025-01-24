@@ -158,7 +158,15 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 
     ```
     no-resolv
-       
+    
+    # ask clients to cache locally served block responses
+    local-ttl=3600
+    
+    # block abusive requests
+    address=/.data.microsoft.com/0.0.0.0
+    address=/scribe.logs.roku.com/0.0.0.0
+    address=/.comcast.net/0.0.0.0
+    
     # NextDNS
     server=45.90.30.0
     server=45.90.28.0
