@@ -95,7 +95,7 @@ All settings are kept as default unless otherwise noted below. Sensitive informa
 - TurboQAM (QAM256): `Enable`[^3]
 - Advanced Settings: `✓`
 - Firmware Type: `VANILLA`[^1]
-- TX Power: `30`[^3]
+- TX Power: `30`[^3] (consider lowering to 27 or 24 if clients are sticking to 2.4 GHz over 5 GHz too much)
 - Protection Mode: `RTS/CTS`[^3]
 - RTS Threshold: `Enable`[^3]
 - Threshold: `980`[^3]
